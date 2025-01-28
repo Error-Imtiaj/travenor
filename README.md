@@ -25,7 +25,9 @@ This is a Flutter-based Travel application that includes email verification, use
 ### Steps
 **1.** Clone the repository:
 
-git clone https://github.com/your-repository.git
+```cmd
+git clone https://github.com/Error-Imtiaj/travenor.git
+```
 
 **2.** Navigate to the project directory:
 
