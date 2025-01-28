@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/colors.dart';
 
-class TitleWidgetForSplashScreen extends StatelessWidget {
-  const TitleWidgetForSplashScreen({
-    super.key, required this.text, required this.fontSize,
-   
+class AppNameSplash extends StatelessWidget {
+  const AppNameSplash({
+    super.key,
+    required this.text,
+    required this.fontSize,
   });
   final double fontSize;
   final String text;
