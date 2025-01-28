@@ -1,0 +1,67 @@
+# Travenor Flutter App
+
+## 📌 Overview
+This is a Flutter-based Travel application that includes email verification, user authentication, and a modern UI. ONLY UI IS AVAILABLE
+
+## 🚀 Features
+- Email Verification
+- Authentication System
+- Responsive UI with `flutter_screenutil`
+- State Management with `GetX`
+- API Integration with `NetworkCaller`
+
+## 🛠️ Tech Stack
+- **Framework**: Flutter
+- **State Management**: GetX
+- **Networking**: HTTP, NetworkCaller
+- **UI**: Flutter Widgets, CustomPaint, RichText
+
+## 👏Installation
+### Prerequisites
+- Flutter SDK (latest version) installed
+- Dart SDK installed
+- Android Studio or VS Code with Flutter extensions
+
+### Steps
+**1.** Clone the repository:
+
+git clone https://github.com/your-repository.git
+
+**2.** Navigate to the project directory:
+
+```cmd
+cd your-project
+```
+
+**3.** Install dependencies:
+
+```cmd 
+flutter pub get
+```
+
+**4.** Run the app:
+
+```cmd
+flutter run
+```
+
+
+## 📂 Project Structure
+```LUA
+/lib
+|-- main.dart
+|-- app/
+|   |-- app.dart
+|   |-- colors.dart
+|-- features/
+|   |-- splashScreen/
+|   |-- auth/
+|   |   |-- ui/
+|   |   |   |-- screens/
+|   |   |   |-- widgets/
+|   |   |-- controllers/
+|-- services/
+|   |-- network_caller.dart
+|-- widgets/
+|-- utils/
+```
