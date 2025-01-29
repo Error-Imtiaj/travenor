@@ -55,6 +55,9 @@ flutter run
 |-- app/
 |   |-- app.dart
 |   |-- colors.dart
+|   |-- app_const.dart
+|   |-- theme.dart
+|   |-- asset_path.dart
 |-- features/
 |   |-- splashScreen/
 |   |-- auth/
@@ -62,8 +65,10 @@ flutter run
 |   |   |   |-- screens/
 |   |   |   |-- widgets/
 |   |   |-- controllers/
+|   |-- common/
+|   |   |-- ui/
+|   |   |   |-- screens/
+|   |   |   |-- widgets/
 |-- services/
 |   |-- network_caller.dart
-|-- widgets/
-|-- utils/
 ```
