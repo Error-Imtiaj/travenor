@@ -3,19 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:travenor/features/splashScreen/ui/controllers/splash_slider_controller.dart';
-import 'package:travenor/features/splashScreen/ui/screens/onetimescreen/first_screen.dart';
-import 'package:travenor/features/splashScreen/ui/screens/onetimescreen/second_screen.dart';
-import 'package:travenor/features/splashScreen/ui/screens/onetimescreen/third_screen.dart';
+import 'package:travenor/features/splashScreen/ui/screens/onboarding/first_screen.dart';
+import 'package:travenor/features/splashScreen/ui/screens/onboarding/second_screen.dart';
+import 'package:travenor/features/splashScreen/ui/screens/onboarding/third_screen.dart';
 
-class OneTimeSlider extends StatefulWidget {
-  static const String routeName = "/OneTimeSlider";
-  const OneTimeSlider({super.key});
+class Onboarding extends StatefulWidget {
+  static const String routeName = "/Onboarding";
+  const Onboarding({super.key});
 
   @override
-  State<OneTimeSlider> createState() => _OneTimeSliderState();
+  State<Onboarding> createState() => _OnboardingState();
 }
 
-class _OneTimeSliderState extends State<OneTimeSlider> {
+class _OnboardingState extends State<Onboarding> {
   final _pageController = PageController();
   final getXctrl = Get.find<SplashSliderController>();
   @override
@@ -33,7 +33,7 @@ class _OneTimeSliderState extends State<OneTimeSlider> {
                 onTap: () => getXctrl.animateToNextScreen(2, _pageController),
               ),
               ThirdScreen(
-                onTap: () => getXctrl.animateToNextScreen(0, _pageController),
+                onTap: () => getXctrl.goToAuthScreen(),
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:travenor/features/auth/ui/screens/sign_in.dart';
 
 class SplashSliderController extends GetxController {
   // late Widget page;
@@ -11,5 +12,9 @@ class SplashSliderController extends GetxController {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  void goToAuthScreen() {
+    Get.toNamed(SignIn.routeName);
   }
 }

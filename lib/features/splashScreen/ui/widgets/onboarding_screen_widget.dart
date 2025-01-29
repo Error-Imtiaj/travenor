@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/colors.dart';
+import 'package:travenor/features/common/ui/widgets/app_primary_button.dart';
 import 'package:travenor/features/splashScreen/ui/widgets/title_widget_for_splash.dart';
 
-class OneTimeScreenWidget extends StatefulWidget {
+class OnboardingScreenWidget extends StatefulWidget {
   final String imagePath;
   final String bodyTitle;
   final String coloredText;
@@ -14,7 +15,7 @@ class OneTimeScreenWidget extends StatefulWidget {
   final double customPaintHeightSize;
   final Function()? onTapBottomButton;
   final Function()? skipButtonOnTap;
-  const OneTimeScreenWidget({
+  const OnboardingScreenWidget({
     super.key,
     required this.imagePath,
     required this.bodyTitle,
@@ -23,20 +24,21 @@ class OneTimeScreenWidget extends StatefulWidget {
     required this.buttonText,
     required this.customPaintWidthSize,
     required this.customPaintHeightSize,
-    this.onTapBottomButton, this.skipButtonOnTap,
+    this.onTapBottomButton,
+    this.skipButtonOnTap,
   });
 
   @override
-  State<OneTimeScreenWidget> createState() => _OneTimeScreenWidgetState();
+  State<OnboardingScreenWidget> createState() => _OnboardingScreenWidgetState();
 }
 
-class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
+class _OnboardingScreenWidgetState extends State<OnboardingScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // * FIRST CONTAINER
+        // * FIRST CONTAINER - > IMAGE
         Stack(
           children: [
             Image.asset(
@@ -48,7 +50,7 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
               top: 50,
               right: 20,
               child: GestureDetector(
-                onTap: widget.skipButtonOnTap ,
+                onTap: widget.skipButtonOnTap,
                 child: Text(
                   'skip',
                   style: TextStyle(
@@ -62,7 +64,8 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
           ],
         ),
 
-        // * SECOND CONTAINER TEXT
+        // * SECOND CONTAINER TEXT -> TITLE & DESCRIPTION
+        // * TITLE
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 44.w, vertical: 16.h),
           child: TitleWidgetForSplashes(
@@ -72,6 +75,8 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
             customPaintHeightSize: widget.customPaintHeightSize,
           ),
         ),
+
+        // * DESCRIPTION
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Text(
@@ -85,32 +90,16 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
           ),
         ),
 
-        // * THIRD CONTAINER BUTTON
+        // * THIRD CONTAINER BUTTON -> BUTTON
         Padding(
           padding: EdgeInsets.only(
                   left: AppConst.scaffoldScreenPadding.w,
                   right: AppConst.scaffoldScreenPadding.w,
                   top: 70.h)
               .w,
-          child: GestureDetector(
+          child: AppBlueButton(
             onTap: widget.onTapBottomButton,
-            child: Container(
-              alignment: Alignment.center,
-              width: double.infinity,
-              height: 60.h,
-              decoration: BoxDecoration(
-                  color: AppColors.primaryBlueColor,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Text(
-                widget.buttonText,
-                style: TextStyle(
-                  fontFamily: "sf-d",
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.primaryWhiteColor,
-                  fontSize: 16.sp,
-                ),
-              ),
-            ),
+            buttonText: widget.buttonText,
           ),
         )
       ],

@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:travenor/app/app_bind.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/theme.dart';
-import 'package:travenor/features/splashScreen/ui/screens/one_time_slider.dart';
+import 'package:travenor/features/auth/ui/screens/sign_in.dart';
+import 'package:travenor/features/splashScreen/ui/screens/onboarding.dart';
 import 'package:travenor/features/splashScreen/ui/screens/splash_screen.dart';
 
 class MyApp extends StatefulWidget {
@@ -26,7 +27,8 @@ class _MyAppState extends State<MyApp> {
           initialBinding: AppBind(),
           initialRoute: SplashScreen.routeName,
           routes: {
-            OneTimeSlider.routeName: (context) => const OneTimeSlider(),
+            Onboarding.routeName: (context) => const Onboarding(),
+            SignIn.routeName: (context) => const SignIn(),
           },
           debugShowCheckedModeBanner: false,
           theme: AppTheme.theme,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:travenor/app/asset_path.dart';
-import 'package:travenor/features/splashScreen/ui/widgets/one_time_screen_widget.dart';
+import 'package:travenor/features/splashScreen/ui/controllers/splash_slider_controller.dart';
+import 'package:travenor/features/splashScreen/ui/widgets/onboarding_screen_widget.dart';
 
 class FirstScreen extends StatefulWidget {
   final Function()? onTap;
@@ -16,7 +18,7 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: OneTimeScreenWidget(
+      body: OnboardingScreenWidget(
         imagePath: AssetPath.splashScreenImage1,
         bodyTitle: "Life is short and the world is ",
         coloredText: "wide",
@@ -26,7 +28,7 @@ class _FirstScreenState extends State<FirstScreen> {
         customPaintWidthSize: 120.w,
         customPaintHeightSize: 20.h,
         onTapBottomButton: widget.onTap,
-        skipButtonOnTap: null,
+        skipButtonOnTap:()=> Get.find<SplashSliderController>().goToAuthScreen(),
       ),
     );
   }
