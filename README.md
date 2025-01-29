@@ -58,13 +58,18 @@ flutter run
 |   |-- app_const.dart
 |   |-- theme.dart
 |   |-- asset_path.dart
+|   |-- app_bind.dart
 |-- features/
 |   |-- splashScreen/
+|   |   |-- ui/
+|   |   |   |-- screens/
+|   |   |   |-- widgets/
+|   |   |   |-- controllers/
 |   |-- auth/
 |   |   |-- ui/
 |   |   |   |-- screens/
 |   |   |   |-- widgets/
-|   |   |-- controllers/
+|   |   |   |-- controllers/
 |   |-- common/
 |   |   |-- ui/
 |   |   |   |-- screens/

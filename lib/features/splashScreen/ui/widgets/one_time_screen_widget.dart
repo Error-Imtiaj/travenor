@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/colors.dart';
-import 'package:travenor/features/splash/ui/widgets/title_widget_for_splash.dart';
+import 'package:travenor/features/splashScreen/ui/widgets/title_widget_for_splash.dart';
 
 class OneTimeScreenWidget extends StatefulWidget {
   final String imagePath;
@@ -13,6 +13,7 @@ class OneTimeScreenWidget extends StatefulWidget {
   final double customPaintWidthSize;
   final double customPaintHeightSize;
   final Function()? onTapBottomButton;
+  final Function()? skipButtonOnTap;
   const OneTimeScreenWidget({
     super.key,
     required this.imagePath,
@@ -22,7 +23,7 @@ class OneTimeScreenWidget extends StatefulWidget {
     required this.buttonText,
     required this.customPaintWidthSize,
     required this.customPaintHeightSize,
-    this.onTapBottomButton,
+    this.onTapBottomButton, this.skipButtonOnTap,
   });
 
   @override
@@ -46,12 +47,15 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
             Positioned(
               top: 50,
               right: 20,
-              child: Text(
-                'skip',
-                style: TextStyle(
-                  fontFamily: 'gil-black',
-                  color: AppColors.lightBlueColor,
-                  fontSize: 18.sp,
+              child: GestureDetector(
+                onTap: widget.skipButtonOnTap ,
+                child: Text(
+                  'skip',
+                  style: TextStyle(
+                    fontFamily: 'gil-black',
+                    color: AppColors.lightBlueColor,
+                    fontSize: 18.sp,
+                  ),
                 ),
               ),
             ),

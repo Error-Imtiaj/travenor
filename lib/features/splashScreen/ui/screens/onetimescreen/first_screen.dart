@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/asset_path.dart';
-import 'package:travenor/features/splash/ui/widgets/one_time_screen_widget.dart';
+import 'package:travenor/features/splashScreen/ui/widgets/one_time_screen_widget.dart';
 
 class FirstScreen extends StatefulWidget {
+  final Function()? onTap;
 
-  const FirstScreen({super.key});
+  const FirstScreen({super.key, this.onTap});
 
   @override
   State<FirstScreen> createState() => _FirstScreenState();
@@ -24,7 +25,8 @@ class _FirstScreenState extends State<FirstScreen> {
         buttonText: "Get Started",
         customPaintWidthSize: 120.w,
         customPaintHeightSize: 20.h,
-        onTapBottomButton: null,
+        onTapBottomButton: widget.onTap,
+        skipButtonOnTap: null,
       ),
     );
   }

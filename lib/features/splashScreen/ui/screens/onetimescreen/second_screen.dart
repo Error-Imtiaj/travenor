@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/asset_path.dart';
-import 'package:travenor/features/splash/ui/widgets/one_time_screen_widget.dart';
+import 'package:travenor/features/splashScreen/ui/widgets/one_time_screen_widget.dart';
 
 class SecondScreen extends StatefulWidget {
-  const SecondScreen({super.key});
+  final Function()? onTap;
+  const SecondScreen({super.key, this.onTap});
 
   @override
   State<SecondScreen> createState() => _SecondScreenState();
@@ -23,7 +24,8 @@ class _SecondScreenState extends State<SecondScreen> {
         buttonText: "Next",
         customPaintWidthSize: 120.w,
         customPaintHeightSize: 20.h,
-        onTapBottomButton: null,
+        onTapBottomButton: widget.onTap,
+        skipButtonOnTap: null,
       ),
     );
   }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/asset_path.dart';
-import 'package:travenor/features/splash/ui/widgets/one_time_screen_widget.dart';
+import 'package:travenor/features/splashScreen/ui/widgets/one_time_screen_widget.dart';
 
 class ThirdScreen extends StatefulWidget {
-  const ThirdScreen({super.key});
+  final Function()? onTap;
+  const ThirdScreen({super.key, this.onTap});
 
   @override
   State<ThirdScreen> createState() => _ThirdScreenState();
@@ -23,7 +24,8 @@ class _ThirdScreenState extends State<ThirdScreen> {
         buttonText: "Next",
         customPaintWidthSize: 120.w,
         customPaintHeightSize: 20.h,
-        onTapBottomButton: null,
+        onTapBottomButton: widget.onTap,
+        skipButtonOnTap: null,
       ),
     );
   }

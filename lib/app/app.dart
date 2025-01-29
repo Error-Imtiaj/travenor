@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:travenor/app/app_bind.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/theme.dart';
-import 'package:travenor/features/splash/ui/screens/one_time_slider.dart';
-import 'package:travenor/features/splash/ui/screens/splash_screen.dart';
+import 'package:travenor/features/splashScreen/ui/screens/one_time_slider.dart';
+import 'package:travenor/features/splashScreen/ui/screens/splash_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -22,6 +23,7 @@ class _MyAppState extends State<MyApp> {
       designSize: Size(width, height),
       builder: (_, child) {
         return GetMaterialApp(
+          initialBinding: AppBind(),
           initialRoute: SplashScreen.routeName,
           routes: {
             OneTimeSlider.routeName: (context) => const OneTimeSlider(),
