@@ -4,7 +4,7 @@ import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/features/splash/ui/widgets/one_time_screen_widget.dart';
 
 class FirstScreen extends StatefulWidget {
-  static const String routeName = "/first-scren";
+
   const FirstScreen({super.key});
 
   @override

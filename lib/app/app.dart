@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/theme.dart';
-import 'package:travenor/features/splash/ui/screens/first_screen.dart';
+import 'package:travenor/features/splash/ui/screens/one_time_slider.dart';
 import 'package:travenor/features/splash/ui/screens/splash_screen.dart';
 
 class MyApp extends StatefulWidget {
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
         return GetMaterialApp(
           initialRoute: SplashScreen.routeName,
           routes: {
-            FirstScreen.routeName: (context) => const FirstScreen(),
+            OneTimeSlider.routeName: (context) => const OneTimeSlider(),
           },
           debugShowCheckedModeBanner: false,
           theme: AppTheme.theme,

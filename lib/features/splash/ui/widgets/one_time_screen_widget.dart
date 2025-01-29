@@ -60,7 +60,7 @@ class _OneTimeScreenWidgetState extends State<OneTimeScreenWidget> {
 
         // * SECOND CONTAINER TEXT
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+          padding: EdgeInsets.symmetric(horizontal: 44.w, vertical: 16.h),
           child: TitleWidgetForSplashes(
             text: widget.bodyTitle,
             coloredText: widget.coloredText,

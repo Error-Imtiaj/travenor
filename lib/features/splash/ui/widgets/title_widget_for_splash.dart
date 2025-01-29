@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travenor/app/colors.dart';
 
 class TitleWidgetForSplashes extends StatelessWidget {
@@ -9,7 +10,9 @@ class TitleWidgetForSplashes extends StatelessWidget {
   const TitleWidgetForSplashes({
     super.key,
     required this.text,
-    required this.coloredText, required this.customPaintWidthSize, required this.customPaintHeightSize,
+    required this.coloredText,
+    required this.customPaintWidthSize,
+    required this.customPaintHeightSize,
   });
 
   @override
@@ -28,7 +31,7 @@ class TitleWidgetForSplashes extends StatelessWidget {
                     text: text,
                     style: TextStyle(
                       fontFamily: 'blk-bt', // Or any other suitable font
-                      fontSize: 30, // Adjust as needed
+                      fontSize: 30.sp, // Adjust as needed
                       fontWeight: FontWeight.normal, // Or bold if needed
                       color: Colors.black, // Adjust color as needed
                     ),
@@ -37,7 +40,7 @@ class TitleWidgetForSplashes extends StatelessWidget {
                     text: coloredText,
                     style: TextStyle(
                       fontFamily: 'blk-bt', // Or any other suitable font
-                      fontSize: 30, // Adjust as needed
+                      fontSize: 30.sp, // Adjust as needed
                       fontWeight: FontWeight.normal, // Or bold if needed
                       color: AppColors.primaryOrangeColor, // Orange color
                     ),
@@ -49,7 +52,8 @@ class TitleWidgetForSplashes extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 48.0),
           child: CustomPaint(
-            size: Size(100, 20), // Adjust width and height for curve size
+            size: Size(customPaintWidthSize,
+                customPaintHeightSize), // Adjust width and height for curve size
             painter: SwooshPainter(),
           ),
         ),

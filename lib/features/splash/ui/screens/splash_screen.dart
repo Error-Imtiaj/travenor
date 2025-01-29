@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/colors.dart';
-import 'package:travenor/features/splash/ui/screens/first_screen.dart';
+import 'package:travenor/features/splash/ui/screens/one_time_slider.dart';
 import 'package:travenor/features/splash/ui/widgets/app_name_splash.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Get.offNamed(FirstScreen.routeName);
+      Get.offNamed(OneTimeSlider.routeName);
     });
   }
 
