@@ -4,10 +4,12 @@ import 'package:travenor/app/colors.dart';
 class TitleWidgetForSplashes extends StatelessWidget {
   final String text;
   final String coloredText;
+  final double customPaintWidthSize;
+  final double customPaintHeightSize;
   const TitleWidgetForSplashes({
     super.key,
     required this.text,
-    required this.coloredText,
+    required this.coloredText, required this.customPaintWidthSize, required this.customPaintHeightSize,
   });
 
   @override
@@ -40,7 +42,6 @@ class TitleWidgetForSplashes extends StatelessWidget {
                       color: AppColors.primaryOrangeColor, // Orange color
                     ),
                   ),
-                  
                 ]))
           ],
         ),

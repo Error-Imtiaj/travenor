@@ -48,7 +48,7 @@ class _FirstScreenState extends State<FirstScreen> {
             padding: EdgeInsets.symmetric(horizontal: 32, vertical: 24),
             child: TitleWidgetForSplashes(
               text: "Life is short and the world is ",
-              coloredText: "wide",
+              coloredText: "wide", customPaintWidthSize: 120, customPaintHeightSize: 20,
             ),
           ),
           Padding(
