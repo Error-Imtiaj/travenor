@@ -44,9 +44,56 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               _form(),
               Gap(40.h),
 
-              const AppBlueButton(
+              AppBlueButton(
                 buttonText: "Reset Password",
-                onTap: null,
+                onTap: showEmailDialog,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // * DIALOGUE BOX
+  void showEmailDialog() {
+    Get.dialog(
+      Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          width: 335, // Matching your design width
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.mark_email_unread_rounded,
+                size: 50,
+                color: AppColors.primaryBlueColor,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "Check your email",
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "sf-d"),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "We have sent password recovery instructions to your email",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    color: AppColors.primaryGreyColor,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "sf-d"),
               ),
             ],
           ),
