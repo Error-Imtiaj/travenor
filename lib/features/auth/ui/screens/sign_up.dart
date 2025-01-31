@@ -5,23 +5,31 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/colors.dart';
-import 'package:travenor/features/auth/ui/screens/sign_up.dart';
+import 'package:travenor/features/auth/ui/screens/sign_in.dart';
 import 'package:travenor/features/auth/ui/widgets/auth_title_section.dart';
 import 'package:travenor/features/auth/ui/widgets/login_with_social_widget.dart';
 import 'package:travenor/features/common/ui/widgets/app_icon_button.dart';
 import 'package:travenor/features/common/ui/widgets/app_primary_button.dart';
 
-class SignIn extends StatefulWidget {
-  static const String routeName = "/sign-in";
-  const SignIn({super.key});
+class SignUp extends StatefulWidget {
+  static const String routName = "/sign-up";
+  const SignUp({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
+  final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
+  String? _errorMessage;
+  void _validatePassword(String value) {
+    setState(() {
+      _errorMessage = value.length < 8 ? "Password must be 8 characters" : null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,52 +49,18 @@ class _SignInState extends State<SignIn> {
               // * TITLE SECTION
               const Center(
                 child: AuthTitleSection(
-                    title: "Sign in now",
-                    description: "Please sign in to continue our app"),
+                    title: "Sign up now",
+                    description: "Please fill the details and create account"),
               ),
               _form(),
-              Gap(10.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Forget Password?",
-                    style: TextStyle(
-                        color: AppColors.primaryBlueColor,
-                        fontFamily: "sf-d",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14.sp),
-                  ),
-                ],
-              ),
               Gap(40.h),
-              AppBlueButton(
-                buttonText: "Sign In",
-                onTap: () {},
-              ),
+
+              const AppBlueButton(buttonText: "Sign Up"),
               Gap(40.h),
-              _dontHaveAccount(),
+              _haveAccount(),
               Gap(40.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const LoginWithSocialWidget(
-                    assetPath: AssetPath.fbIcon,
-                    onTap: null,
-                  ),
-                  Gap(10.w),
-                  const LoginWithSocialWidget(
-                    assetPath: AssetPath.insIcon,
-                    onTap: null,
-                  ),
-                  Gap(10.w),
-                  const LoginWithSocialWidget(
-                    assetPath: AssetPath.twiIcon,
-                    onTap: null,
-                  ),
-                ],
-              )
+              // * SOCIAL LOGIN
+              _socialLogin()
             ],
           ),
         ),
@@ -97,8 +71,21 @@ class _SignInState extends State<SignIn> {
   // * FORM
   Widget _form() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Gap(40.h),
+        TextFormField(
+          controller: userNameController,
+          style: TextStyle(
+            fontFamily: "sf-d",
+            fontWeight: FontWeight.w500,
+            fontSize: 18.sp,
+            color: AppColors.primaryblackColor,
+          ),
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(hintText: "Username"),
+        ),
+        Gap(20.h),
         TextFormField(
           controller: emailController,
           style: TextStyle(
@@ -113,6 +100,7 @@ class _SignInState extends State<SignIn> {
         Gap(20.h),
         TextFormField(
           controller: passController,
+          onChanged: (value) => _validatePassword(value),
           obscureText: true,
           style: TextStyle(
             fontFamily: "sf-d",
@@ -122,18 +110,28 @@ class _SignInState extends State<SignIn> {
           ),
           decoration: const InputDecoration(hintText: "Password"),
         ),
+        if (_errorMessage != null) ...[
+          Gap(10.h),
+          Text(
+            "  ${_errorMessage!}",
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 14,
+            ),
+          ),
+        ],
       ],
     );
   }
 
   // * DON'T HAVE AN ACCOUNT
-  Widget _dontHaveAccount() {
+  Widget _haveAccount() {
     return Center(
       child: RichText(
           textAlign: TextAlign.center,
           text: TextSpan(children: [
             TextSpan(
-              text: "Don't have an account? ",
+              text: "Already have an account? ",
               style: TextStyle(
                 color: AppColors.primaryGreyColor,
                 fontFamily: "sf-d",
@@ -142,7 +140,7 @@ class _SignInState extends State<SignIn> {
               ),
             ),
             TextSpan(
-                text: "Sign up",
+                text: "Sign in",
                 style: TextStyle(
                   color: AppColors.primaryBlueColor,
                   fontFamily: "sf-d",
@@ -152,7 +150,7 @@ class _SignInState extends State<SignIn> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
                     // * NAVIGATE TO SIGN UP SCREEN
-                    Get.toNamed(SignUp.routName);
+                    Get.offNamed(SignIn.routeName);
                   }),
             TextSpan(
               text: "\n\nOr connect",
@@ -167,9 +165,34 @@ class _SignInState extends State<SignIn> {
     );
   }
 
+  // * SOCIAL LOGIN
+  Widget _socialLogin() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        const LoginWithSocialWidget(
+          assetPath: AssetPath.fbIcon,
+          onTap: null,
+        ),
+        Gap(10.w),
+        const LoginWithSocialWidget(
+          assetPath: AssetPath.insIcon,
+          onTap: null,
+        ),
+        Gap(10.w),
+        const LoginWithSocialWidget(
+          assetPath: AssetPath.twiIcon,
+          onTap: null,
+        ),
+      ],
+    );
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
+    userNameController.dispose();
     emailController.dispose();
     passController.dispose();
     super.dispose();
