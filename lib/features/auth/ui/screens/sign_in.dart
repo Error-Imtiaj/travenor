@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/colors.dart';
+import 'package:travenor/features/auth/ui/screens/forget_password.dart';
 import 'package:travenor/features/auth/ui/screens/sign_up.dart';
 import 'package:travenor/features/auth/ui/widgets/auth_title_section.dart';
 import 'package:travenor/features/auth/ui/widgets/login_with_social_widget.dart';
@@ -49,13 +50,17 @@ class _SignInState extends State<SignIn> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Forget Password?",
-                    style: TextStyle(
+                  GestureDetector(
+                    onTap: () => Get.toNamed(ForgetPassword.routeName),
+                    child: Text(
+                      "Forget Password?",
+                      style: TextStyle(
                         color: AppColors.primaryBlueColor,
                         fontFamily: "sf-d",
                         fontWeight: FontWeight.w500,
-                        fontSize: 14.sp),
+                        fontSize: 14.sp,
+                      ),
+                    ),
                   ),
                 ],
               ),

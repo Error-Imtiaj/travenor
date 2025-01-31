@@ -21,16 +21,18 @@ class AuthTitleSection extends StatelessWidget {
             fontSize: 26.sp,
             color: AppColors.primaryblackColor,
           ),
+          textAlign: TextAlign.center,
         ),
         Gap(15.h),
         Text(
           description,
           style: TextStyle(
             fontFamily: "sf-d",
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
             fontSize: 16.sp,
             color: AppColors.primaryGreyColor,
           ),
+          textAlign: TextAlign.center,
         ),
       ],
     );

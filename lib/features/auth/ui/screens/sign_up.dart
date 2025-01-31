@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
               _form(),
               Gap(40.h),
 
-              const AppBlueButton(buttonText: "Sign Up"),
+              const AppBlueButton(buttonText: "Sign Up", onTap:  null,),
               Gap(40.h),
               _haveAccount(),
               Gap(40.h),

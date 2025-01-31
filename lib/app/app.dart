@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:travenor/app/app_bind.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/theme.dart';
+import 'package:travenor/features/auth/ui/screens/forget_password.dart';
 import 'package:travenor/features/auth/ui/screens/sign_in.dart';
 import 'package:travenor/features/auth/ui/screens/sign_up.dart';
 import 'package:travenor/features/splashScreen/ui/screens/onboarding.dart';
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
             Onboarding.routeName: (context) => const Onboarding(),
             SignIn.routeName: (context) => const SignIn(),
             SignUp.routName: (context) => const SignUp(),
+            ForgetPassword.routeName: (context) => const ForgetPassword(),
           },
           debugShowCheckedModeBanner: false,
           theme: AppTheme.theme,
