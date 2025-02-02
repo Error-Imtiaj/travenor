@@ -17,18 +17,20 @@ class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: OnboardingScreenWidget(
-        imagePath: AssetPath.splashScreenImage3,
-        bodyTitle: "People don’t take trips, trips take ",
-        coloredText: "people",
-        description:
-            "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
-        buttonText: "Next",
-        customPaintWidthSize: 120.w,
-        customPaintHeightSize: 20.h,
-        onTapBottomButton: widget.onTap,
-        skipButtonOnTap: () =>
-            Get.find<SplashSliderController>().goToAuthScreen(),
+      body: SingleChildScrollView(
+        child: OnboardingScreenWidget(
+          imagePath: AssetPath.splashScreenImage3,
+          bodyTitle: "People don’t take trips, trips take ",
+          coloredText: "people",
+          description:
+              "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
+          buttonText: "Next",
+          customPaintWidthSize: 120.w,
+          customPaintHeightSize: 20.h,
+          onTapBottomButton: widget.onTap,
+          skipButtonOnTap: () =>
+              Get.find<SplashSliderController>().goToAuthScreen(),
+        ),
       ),
     );
   }

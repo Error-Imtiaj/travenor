@@ -72,7 +72,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
+              const Icon(
                 Icons.mark_email_unread_rounded,
                 size: 50,
                 color: AppColors.primaryBlueColor,
@@ -81,19 +81,21 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               Text(
                 "Check your email",
                 style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "sf-d"),
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "sf-d",
+                ),
               ),
               const SizedBox(height: 10),
               Text(
                 "We have sent password recovery instructions to your email",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 16.sp,
-                    color: AppColors.primaryGreyColor,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "sf-d"),
+                  fontSize: 16.sp,
+                  color: AppColors.primaryGreyColor,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "sf-d",
+                ),
               ),
             ],
           ),

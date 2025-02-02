@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/colors.dart';
+import 'package:travenor/features/auth/ui/screens/otp_verify.dart';
 import 'package:travenor/features/auth/ui/screens/sign_in.dart';
 import 'package:travenor/features/auth/ui/widgets/auth_title_section.dart';
 import 'package:travenor/features/auth/ui/widgets/login_with_social_widget.dart';
@@ -55,7 +56,10 @@ class _SignUpState extends State<SignUp> {
               _form(),
               Gap(40.h),
 
-              const AppBlueButton(buttonText: "Sign Up", onTap:  null,),
+              AppBlueButton(
+                buttonText: "Sign Up",
+                onTap: _navigateToOtpVerifyScreen,
+              ),
               Gap(40.h),
               _haveAccount(),
               Gap(40.h),
@@ -66,6 +70,11 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  // * NAVIGATE TO OTP VERIFY SCREEN
+  void _navigateToOtpVerifyScreen() {
+    Get.toNamed(OtpVerify.routeName);
   }
 
   // * FORM
