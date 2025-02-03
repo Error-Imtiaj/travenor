@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -18,6 +20,37 @@ class OtpVerify extends StatefulWidget {
 
 class _OtpVerifyState extends State<OtpVerify> {
   final TextEditingController _pinController = TextEditingController();
+  late final RxInt _resendCodeInSecs = 120.obs;
+  final RxBool _isReesendCodeEnabled = false.obs;
+  late Timer timer;
+
+  void _resendCountDown() {
+    _resendCodeInSecs.value = 30;
+    _isReesendCodeEnabled.value = true;
+    timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (_resendCodeInSecs.value == 0) {
+        t.cancel();
+        _isReesendCodeEnabled.value = false;
+      } else {
+        _resendCodeInSecs.value--;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _resendCountDown();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +92,46 @@ class _OtpVerifyState extends State<OtpVerify> {
                 buttonText: "Verify",
                 onTap: () {},
               ),
-
-              Gap(40.h),
+              Gap(16.h),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Obx(() => Visibility(
+                          visible: !_isReesendCodeEnabled.value,
+                          child: GestureDetector(
+                            onTap: _resendCountDown,
+                            child: Text(
+                              "Resend Code",
+                              style: TextStyle(
+                                fontFamily: "sf-d",
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.primaryGreyColor,
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ),
+                        )),
+                  ),
+                  Center(
+                    child: Obx(
+                      () => Visibility(
+                        visible: _isReesendCodeEnabled.value,
+                        child: Text(
+                          " ${_resendCodeInSecs.value}s",
+                          style: TextStyle(
+                            fontFamily: "sf-d",
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.primaryGreyColor,
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
