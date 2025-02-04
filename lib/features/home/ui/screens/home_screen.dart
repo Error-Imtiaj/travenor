@@ -42,12 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700),
                 ),
                 GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "View all",
-                      style: TextStyle(
-                          fontSize: 14.sp, color: AppColors.primaryBlueColor),
-                    )),
+                  onTap: () {},
+                  child: Text(
+                    "View all",
+                    style: TextStyle(
+                        fontSize: 14.sp, color: AppColors.primaryBlueColor),
+                  ),
+                ),
               ],
             )
           ],
