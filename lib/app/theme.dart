@@ -9,21 +9,25 @@ class AppTheme {
 
       // * INPUT DECORATION
       inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          fillColor: AppColors.greyBackgroundTextfield,
-          filled: true,
-          contentPadding: EdgeInsets.all(16)),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        fillColor: AppColors.greyBackgroundTextfield,
+        filled: true,
+        contentPadding: EdgeInsets.all(16),
+      ),
+
+      // * FONT FAMILY
+      fontFamily: 'sf-d',
     );
   }
 }

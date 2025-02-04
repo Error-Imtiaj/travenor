@@ -24,6 +24,7 @@ class AppIconButton extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: Icon(
+          
           icon,
           size: 16,
         ),
