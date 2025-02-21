@@ -20,6 +20,6 @@ class NavIcon extends StatelessWidget {
           color:
               selectedIndex ? AppColors.primaryBlueColor : AppColors.primaryGreyColor,
         ),
-        label: label);
+        label: label, );
   }
 }

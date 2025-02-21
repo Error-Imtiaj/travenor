@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:travenor/app/app_const.dart';
 import 'package:travenor/app/colors.dart';
 import 'package:travenor/features/common/ui/widgets/app_primary_button.dart';
@@ -66,6 +67,7 @@ class _OnboardingScreenWidgetState extends State<OnboardingScreenWidget> {
 
         // * SECOND CONTAINER TEXT -> TITLE & DESCRIPTION
         // * TITLE
+        Gap(20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 44.w, vertical: 16.h),
           child: TitleWidgetForSplashes(

@@ -8,7 +8,8 @@ class AppColors {
   static const Color primaryYellowColor = Color(0xffFFD336);
   static const Color primaryWhiteColor = Color(0xffFFFFFF);
   static const Color primaryOrangeColor = Color(0xffFF7029);
-  static const Color transparentBackgroundIconButton = Color(0xff1B1E28);
+  // * TRANSPARENT BACKGROUND COLOR 0XAA
+  static const Color transparentBackgroundIconButton = Color(0xAA7D848D);
   static const Color greyBackgroundIconbutton = Color(0xffF7F7F9);
   static const Color greyBackgroundTextfield = Color(0xffF7F7F9);
 }

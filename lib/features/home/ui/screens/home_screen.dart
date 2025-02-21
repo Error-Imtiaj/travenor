@@ -4,7 +4,10 @@ import 'package:gap/gap.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/colors.dart';
+import 'package:travenor/features/common/ui/widgets/app_icon_button.dart';
 import 'package:travenor/features/home/ui/widgets/curved_paint_line.dart';
+import 'package:travenor/features/home/ui/widgets/destination_card.dart';
+import 'package:travenor/features/home/ui/widgets/rating_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   final String? name;
@@ -50,13 +53,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
-            )
+            ),
+
+            //* DESTINATION CARDS
+            Gap(30.h),
+            SingleChildScrollView(
+              clipBehavior: Clip.none,
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  DestinationCard(
+                    ImagePath: AssetPath.destinationImage1,
+                    name: "Niladri Resobir",
+                    location: "Dhaka, Bangladesh",
+                    rating: 4.5,
+                  ),
+                  Gap(16.w),
+                  DestinationCard(
+                    ImagePath: AssetPath.destinationImage2,
+                    name: "Niladri Resobir",
+                    location: "Dhaka, Bangladesh",
+                    rating: 4.5,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     ));
   }
 
+  // * TITLE BOLD TEXT
   Stack _headBoldText() {
     return Stack(
       clipBehavior: Clip.none,

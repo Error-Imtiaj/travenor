@@ -79,12 +79,12 @@ class _NavScreenState extends State<NavScreen> {
                         color: AppColors.primaryWhiteColor,
                       ))),
               NavIcon(
-                icon: Iconsax.message_favorite,
+                icon: Iconsax.messages_3_copy,
                 label: 'Message',
                 selectedIndex: controller.selectedIndex == 3,
               ),
               NavIcon(
-                icon: Iconsax.user,
+                icon: Iconsax.user_copy,
                 label: 'Profile',
                 selectedIndex: controller.selectedIndex == 4,
               ),

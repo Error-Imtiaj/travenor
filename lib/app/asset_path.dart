@@ -22,4 +22,17 @@ class AssetPath {
   static const String _appImageBasePath = 'assets/images/appImages';
 
   static const String userImage = '$_appImageBasePath/user.png';
+
+  // * DESTINATION IMAGES
+  static const String _destinationBasePath = 'assets/images/destinationImages';
+
+  static const String destinationImage1 = '$_destinationBasePath/des1.png';
+  static const String destinationImage2 = '$_destinationBasePath/des2.png';
+
+  // * CARD AVATAR IMAGES 
+  static const String _cardAvatarBasePath = 'assets/images/overlappingAvatar';
+
+  static const String cardAvatar1 = '$_cardAvatarBasePath/avatar1.png';
+  static const String cardAvatar2 = '$_cardAvatarBasePath/avatar2.png';
+  static const String cardAvatar3 = '$_cardAvatarBasePath/avatar3.png';
 }
