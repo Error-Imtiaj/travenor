@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travenor/app/app_bind.dart';
 import 'package:travenor/app/app_const.dart';
+import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/theme.dart';
 import 'package:travenor/features/auth/ui/screens/forget_password.dart';
 import 'package:travenor/features/auth/ui/screens/otp_verify.dart';
@@ -11,6 +12,7 @@ import 'package:travenor/features/auth/ui/screens/sign_up.dart';
 import 'package:travenor/features/common/ui/screens/nav_screen.dart';
 import 'package:travenor/features/splashScreen/ui/screens/onboarding.dart';
 import 'package:travenor/features/splashScreen/ui/screens/splash_screen.dart';
+import 'package:travenor/features/travelDetails/ui/screens/travel_details_page.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -37,6 +39,9 @@ class _MyAppState extends State<MyApp> {
             ForgetPassword.routeName: (context) => const ForgetPassword(),
             OtpVerify.routeName: (context) => const OtpVerify(),
             NavScreen.routeName: (context) => const NavScreen(),
+            TravelDetailsPage.routeName: (context) => TravelDetailsPage(
+                  imagePath: Get.arguments?['imagePath'] ?? AssetPath.destinationImage2,
+                ),
           },
           debugShowCheckedModeBanner: false,
           theme: AppTheme.theme,

@@ -39,57 +39,80 @@ class _NavScreenState extends State<NavScreen> {
     ];
     return Obx(
       () => Scaffold(
-          body: screen[controller.selectedIndex],
-          bottomNavigationBar: NavigationBar(
-            height: 100.h,
-            backgroundColor: AppColors.greyBackgroundIconbutton,
-            indicatorColor: Colors.transparent,
-            selectedIndex: controller.selectedIndex,
-            onDestinationSelected: controller.changeIndex,
-            overlayColor: WidgetStateColor.transparent,
-            destinations: [
-              NavIcon(
-                icon: Iconsax.home_1_copy,
-                label: 'Home',
-                selectedIndex: controller.selectedIndex == 0,
-              ),
-              NavIcon(
-                icon: Iconsax.calendar_1_copy,
-                label: 'Calender',
-                selectedIndex: controller.selectedIndex == 1,
-              ),
-              Container(
+        body: screen[controller.selectedIndex],
+        bottomNavigationBar: Material(
+          elevation: 10, // Optional, helps with shadow visibility
+          color: Colors.transparent,
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.greyBackgroundIconbutton,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.greyBackgroundTextfield.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 20,
+                  offset: Offset(0, -6),
+                ),
+              ],
+            ),
+            child: NavigationBar(
+              height: 100.h,
+              backgroundColor: Colors.transparent,
+              indicatorColor: Colors.transparent,
+              selectedIndex: controller.selectedIndex,
+              onDestinationSelected: controller.changeIndex,
+              overlayColor: WidgetStateColor.transparent,
+              destinations: [
+                NavIcon(
+                  icon: Iconsax.home_1_copy,
+                  label: 'Home',
+                  selectedIndex: controller.selectedIndex == 0,
+                ),
+                NavIcon(
+                  icon: Iconsax.calendar_1_copy,
+                  label: 'Calendar',
+                  selectedIndex: controller.selectedIndex == 1,
+                ),
+                Container(
                   width: 60.w,
                   height: 60.h,
-                  decoration: BoxDecoration(boxShadow: [
-                    BoxShadow(
-                      color: AppColors.lightBlueColor, // Light blue shadow
-                      blurRadius: 10, // Soft blur
-                      spreadRadius: 1, // Spread effect
-                      offset: Offset(2, 10), // Moves the shadow downward
-                    ),
-                  ], shape: BoxShape.circle, color: AppColors.primaryBlueColor),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.lightBlueColor.withOpacity(0.5),
+                        blurRadius: 12,
+                        spreadRadius: 2,
+                        offset: Offset(2, 8),
+                      ),
+                    ],
+                    shape: BoxShape.circle,
+                    color: AppColors.primaryBlueColor,
+                  ),
                   child: IconButton(
-                      onPressed: () {
-                        // TODO NEED TO REMOVE LATER
-                        Get.toNamed(Onboarding.routeName);
-                      },
-                      icon: Icon(
-                        Iconsax.search_normal_copy,
-                        color: AppColors.primaryWhiteColor,
-                      ))),
-              NavIcon(
-                icon: Iconsax.messages_3_copy,
-                label: 'Message',
-                selectedIndex: controller.selectedIndex == 3,
-              ),
-              NavIcon(
-                icon: Iconsax.user_copy,
-                label: 'Profile',
-                selectedIndex: controller.selectedIndex == 4,
-              ),
-            ],
-          )),
+                    onPressed: () {
+                      Get.toNamed(Onboarding.routeName);
+                    },
+                    icon: Icon(
+                      Iconsax.search_normal_copy,
+                      color: AppColors.primaryWhiteColor,
+                    ),
+                  ),
+                ),
+                NavIcon(
+                  icon: Iconsax.messages_3_copy,
+                  label: 'Message',
+                  selectedIndex: controller.selectedIndex == 3,
+                ),
+                NavIcon(
+                  icon: Iconsax.user_copy,
+                  label: 'Profile',
+                  selectedIndex: controller.selectedIndex == 4,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {},

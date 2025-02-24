@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:travenor/app/asset_path.dart';
 import 'package:travenor/app/colors.dart';
@@ -8,6 +9,7 @@ import 'package:travenor/features/common/ui/widgets/app_icon_button.dart';
 import 'package:travenor/features/home/ui/widgets/curved_paint_line.dart';
 import 'package:travenor/features/home/ui/widgets/destination_card.dart';
 import 'package:travenor/features/home/ui/widgets/rating_widget.dart';
+import 'package:travenor/features/travelDetails/ui/screens/travel_details_page.dart';
 
 class HomeScreen extends StatefulWidget {
   final String? name;
@@ -67,6 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     name: "Niladri Resobir",
                     location: "Dhaka, Bangladesh",
                     rating: 4.5,
+                    onTap: () {
+                      Get.toNamed(TravelDetailsPage.routeName, arguments: {
+                        "imagePath": AssetPath.destinationImage1,
+                      });
+                    },
                   ),
                   Gap(16.w),
                   DestinationCard(
@@ -74,6 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     name: "Niladri Resobir",
                     location: "Dhaka, Bangladesh",
                     rating: 4.5,
+                    onTap: () {
+                      Get.toNamed(TravelDetailsPage.routeName, arguments: {
+                        "imagePath": AssetPath.destinationImage2,
+                      });
+                    },
                   ),
                 ],
               ),
